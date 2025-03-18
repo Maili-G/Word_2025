@@ -22,6 +22,15 @@
  *  cette fonction est déportée dans un autre script.
  */
 require_once 'connect-db.php';
+require_once 'images/flag/'; 
+
+# obtenir la liste de tous les continents 
+
+function getContinent(){
+    global $pdo;
+    $query = 'SELECT DISTINCT continent FROM Country;';
+    return $pdo->query($query)->fetchAll();
+}
 
 /**
  * Obtenir la liste de tous les pays référencés d'un continent donné
@@ -60,3 +69,21 @@ function getAllCountries()
     $query = 'SELECT * FROM Country;';
     return $pdo->query($query)->fetchAll();
 }
+
+function getCapitale($num){
+    global $pdo;
+    $query = 'SELECT Name  FROM City where id = :num;';
+    $prep = $pdo->prepare($query);
+    // on associe ici (bind) le paramètre (:cont) de la req SQL,
+    // avec la valeur reçue en paramètre de la fonction ($continent)
+    // on prend soin de spécifier le type de la valeur (String) afin
+    // de se prémunir d'injections SQL (des filtres seront appliqués)
+    $prep->bindValue(':num', $num, PDO::PARAM_INT);
+    $prep->execute();
+    // var_dump($prep);  pour du debug
+    // var_dump($continent);
+
+    // on retourne un tableau d'objets (car spécifié dans connect-db.php)
+    return $prep->fetch();
+}
+

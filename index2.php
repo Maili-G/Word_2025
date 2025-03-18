@@ -13,11 +13,19 @@
  */
 
 ?>
-<?php  require_once 'header.php'; ?>
+<?php require_once 'header.php'; ?>
+<?php require_once 'images/flag/'; ?>
 <?php
 require_once 'inc/manager-db.php';
-$continent = $_GET['name'];
-$desPays = getCountriesByContinent($continent);
+if (isset($_GET['name']) && !empty($_GET['name'])){
+  $continent = ($_GET['name']);
+  $desPays = getCountriesByContinent($continent);
+}
+else{
+  $continent = "Monde";
+  $desPays = getAllCountries();
+}
+
 ?>
 
 <main role="main" class="flex-shrink-0">
@@ -28,8 +36,10 @@ $desPays = getCountriesByContinent($continent);
      <table class="table">
          <tr>
            <th>Nom</th>
+           <th>Drapeau</th>
            <th>Population</th>
            <th>Surface</th>
+           <th>Capitale</th>
          </tr>
        <?php
        // $desPays est un tableau dont les éléments sont des objets représentant
@@ -39,6 +49,8 @@ $desPays = getCountriesByContinent($continent);
             <td> <?php echo $lePays->Name ?></td>
             <td> <?php echo $lePays->Population ?></td>
             <td> <?php echo $lePays->SurfaceArea ?></td>
+            <td> <?php echo getCapitale($lePays->Capital)->Name ?></td>
+            <!-- Afficher l'image du pays -->
           </tr>
           <?php endforeach ; ?>
      </table>
