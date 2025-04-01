@@ -14,7 +14,7 @@
 
 ?>
 <?php require_once 'header.php'; ?>
-<?php require_once 'images/flag/'; ?>
+<?php //require_once 'images/flag/'; ?>
 <?php
 require_once 'inc/manager-db.php';
 if (isset($_GET['name']) && !empty($_GET['name'])){
@@ -28,11 +28,11 @@ else{
 
 ?>
 
-<main role="main" class="flex-shrink-0">
+<main role="main" class="flex-shrink-0"> <!-- bootstrap-->
 
-  <div class="container">
+  <div class="container"> <!-- -->
     <h1>Les pays en <?= $continent ; ?></h1>
-    <div>
+    <div>  <!-- -->
      <table class="table">
          <tr>
            <th>Nom</th>
@@ -47,21 +47,38 @@ else{
           foreach ($desPays as $lePays): ?>
           <tr>
             <td> <?php echo $lePays->Name ?></td>
+            <?php
+            // function minuscule($Code2) {
+            //   $Code2 = strtolower($Code2);
+            // }
+            //$Code2="Code2"
+              
+            ?>
+            <!-- <td><div class="resizeImg"><img src="images/flag/php strtolower($lePays->Code2)?>.png" alt=""></div></td>  -->
+            <td><div class="resizeImg"><img src="images/flag/<?php echo strtolower($lePays->Code2) ?>.png " alt="<?php echo $lePays->Code2 ?>"></div></td> 
+            
+            <!--<td> php echo $lePays->Code ?></td>-->
             <td> <?php echo $lePays->Population ?></td>
             <td> <?php echo $lePays->SurfaceArea ?></td>
             <td> <?php echo getCapitale($lePays->Capital)->Name ?></td>
+
+            <td><a href="details.php?id=<?php echo $pays["Name"]?>"><button type="button" class="btn btn-primary mt-auto">View</button></a></td>
+
             <!-- Afficher l'image du pays -->
           </tr>
           <?php endforeach ; ?>
      </table>
     </div>
     <p>
+      <!--
         <code>
       <?php
-        var_dump($desPays[0]);
+        //var_dump($desPays[0]);
         ?>
         </code>
+          -->
     </p>
+    <!--
     <section class="jumbotron">
       <div class="container">
         <h1 class="jumbotron-heading">Tableau d'objets</h1>
@@ -84,6 +101,7 @@ else{
           </div>
       </div>
     </section>
+          -->
   </div>
 </main>
 

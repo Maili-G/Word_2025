@@ -22,7 +22,7 @@
  *  cette fonction est déportée dans un autre script.
  */
 require_once 'connect-db.php';
-require_once 'images/flag/'; 
+//require_once 'images/flag/'; 
 
 # obtenir la liste de tous les continents 
 

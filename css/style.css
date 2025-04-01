@@ -1,0 +1,9 @@
+.resizeImg img{
+    width: 100%;
+}
+.resizeImg{
+    width: 50px;
+}
+.test{
+    border: 2px red solid;
+}
