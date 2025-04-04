@@ -50,8 +50,8 @@
 <body class="d-flex flex-column h-100">
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="index.php"> </a> <!-- nom pour un onglet entre les > < -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    <a class="navbar-brand" href="index.php"> GeoWorld</a> <!-- nom pour un onglet entre les > < -->
+    <button class="navbar-toggler" href="mapWorld.php" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

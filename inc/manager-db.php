@@ -87,3 +87,18 @@ function getCapitale($num){
     return $prep->fetch();
 }
 
+function test($arg){
+    echo "<pre>";
+    print_r($arg);
+    echo "</pre>";
+
+}
+
+function getDetailsPays($name){
+    global $pdo;
+    $query = 'SELECT *  FROM Country where id = :name;';
+    $prep = $pdo->prepare($query);
+    $prep->bindValue(':name', $name, PDO::PARAM_STR);
+    $prep->execute();
+    return $prep->fetch();
+}
