@@ -14,7 +14,7 @@ test($lePays);
 
   <div class="container">
 
-    <td><div class="#"><img src="images/flag/<?php echo strtolower($lePays->Code2git) ?>.png " alt="<?php echo $lePays->Code2 ?>"></div></td> 
+    <td><div class="#"><img src="images/flag/<?php echo strtolower($lePays->Code2) ?>.png " alt="<?php echo $lePays->Code2 ?>"></div></td> 
     
     <table class="table">
          <tr>
