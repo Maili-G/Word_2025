@@ -94,11 +94,11 @@ function test($arg){
 
 }
 
-function getDetailsPays($name){
+function getDetailsPays($id){
     global $pdo;
-    $query = 'SELECT *  FROM Country where id = :name;';
+    $query = 'SELECT *  FROM Country where id = :id';
     $prep = $pdo->prepare($query);
-    $prep->bindValue(':name', $name, PDO::PARAM_STR);
+    $prep->bindValue(':id', $id, PDO::PARAM_STR);
     $prep->execute();
     return $prep->fetch();
 }

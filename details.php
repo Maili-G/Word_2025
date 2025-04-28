@@ -1,10 +1,11 @@
 
 <?php require_once 'header.php'; ?>
 <?php require_once 'inc/manager-db.php'; 
-if (isset($_GET['name']) && !empty($_GET['name'])){
-  $name = ($_GET['name']);
+if (isset($_GET['id']) && !empty($_GET['id'])){
+  $name = ($_GET['id']);
   $lePays = getDetailsPays($name);
 }
+test($lePays);
 
 ?>
 
@@ -13,7 +14,7 @@ if (isset($_GET['name']) && !empty($_GET['name'])){
 
   <div class="container">
 
-    <td><div class="#"><img src="images/flag/<?php echo strtolower($_GET["id"]) ?>.png " alt="<?php echo $lePays->Code2 ?>"></div></td> 
+    <td><div class="#"><img src="images/flag/<?php echo strtolower($lePays->Code2git) ?>.png " alt="<?php echo $lePays->Code2 ?>"></div></td> 
     
     <table class="table">
          <tr>
@@ -31,7 +32,6 @@ if (isset($_GET['name']) && !empty($_GET['name'])){
 </table>
   
 
-<?php test($lePays);?>
 <?php
 require_once 'javascripts.php';
 require_once 'footer.php';

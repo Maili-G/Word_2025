@@ -62,7 +62,7 @@ else{
             <td> <?php echo $lePays->SurfaceArea ?></td>
             <td> <?php echo getCapitale($lePays->Capital)->Name ?></td>
 
-            <td><a href="details.php?id=<?php echo $lePays->Code2?>"><button type="button" class="btn btn-primary mt-auto">View</button></a></td>
+            <td><a href="details.php?id=<?php echo $lePays->id?>"><button type="button" class="btn btn-primary mt-auto">View</button></a></td>
 
             <!-- Afficher l'image du pays -->
           </tr>
